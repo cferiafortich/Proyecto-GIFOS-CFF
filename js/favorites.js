@@ -7,10 +7,9 @@ const CLASS_FAVORITO='favorito';
 //let storage =typeof(storage)==='undefined'?new MiStorage():storage;
 giphy.getGifsPorIds(storage.getIdsFavoritos()).then((gifsData) => {
     console.log(gifsData);//TODO: eliminar
-    if (gifsData.length === 0 ){
-        divNoFavorites.classList.remove('hide')
-        divNoFavorites.classList.add('show-flex')
-        
+    if (gifsData == null || gifsData.length === 0){
+        divNoFavorites.classList.remove('hide');
+        divNoFavorites.classList.add('show-flex');
     }
     if(gifsData!=null)
         gifsData.forEach(gifData => {
