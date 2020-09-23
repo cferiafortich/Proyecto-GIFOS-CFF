@@ -37,6 +37,7 @@ txtBusqueda.addEventListener('keyup', (element)=>{
     }else{ 
         if(element.keyCode === 13){ 
             search(txtBusqueda.value);
+            txtBusqueda.value = '';
         }else{ 
             giphy.getAutoComplete(txtBusqueda.value).then(res =>{
             loadSuggestion(res);
@@ -49,6 +50,7 @@ txtBusqueda.addEventListener('keyup', (element)=>{
 btnBusqueda.addEventListener('click', ()=>{
     if(txtBusqueda.value != '')
         search(txtBusqueda.value)
+        txtBusqueda.value = '';
 });
 
 btnSeeMore.addEventListener('click', ()=>{
@@ -57,10 +59,12 @@ btnSeeMore.addEventListener('click', ()=>{
 });
 
 divCloseSearch.addEventListener('click', ()=>{
+    txtBusqueda.value = '';
     divSugestion.classList.remove('show');
     divSugestion.classList.add('hide');
     divCloseSearch.classList.remove('show');
     divCloseSearch.classList.add('hide');
+    
 });
 
 
